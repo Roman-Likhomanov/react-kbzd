@@ -1,39 +1,54 @@
-import React from 'react';
-import s from './OnOff.module.css';
+import React, {useState} from 'react';
 
 export const OnOff = () => {
+
+    let [on, setOn] = useState(false);
+
+    const box = {
+        display: 'flex'
+    }
+
+    const onStyle = {
+        width: '50px',
+        height: '50px',
+        border: '1px solid black',
+        // textAlign: 'center',
+        lineHeight: '50px',
+        margin: '10px',
+        backgroundColor: on ? 'green' : 'white'
+    }
+
+    const offStyle = {
+        width: '50px',
+        height: '50px',
+        border: '1px solid black',
+        // textAlign: 'center',
+        lineHeight: '50px',
+        margin: '10px',
+        backgroundColor: on ? 'white' : 'red'
+    }
+
+    const indicatorStyle = {
+        width: '50px',
+        height: '50px',
+        border: '1px solid black',
+        borderRadius: '30px',
+        margin: '10px',
+        backgroundColor: on ? 'green' : 'red'
+    }
+
+
     return (
-        <div>
-            <LightOnOff selected={true}/>
+        <div style={box}>
+            <div style={onStyle} onClick={() => {
+                setOn(true)
+            }}>On
+            </div>
+            <div style={offStyle} onClick={() => {
+                setOn(false)
+            }}>Off
+            </div>
+            <div style={indicatorStyle}></div>
         </div>
     )
-}
-
-type LightPropsType = {
-    selected: boolean
-}
-
-function LightOnOff(props: LightPropsType) {
-return(
-   <div>
-       <LightOff/>
-       {props.selected && <LightOn/>}
-   </div>
-)
-}
-
-const LightOn = () => {
-    return <div className={s.boxOnOff}>
-        <div className={s.onGreen}>On</div>
-        <div className={s.off}>Off</div>
-        <div className={s.circleGreen}></div>
-    </div>
-}
-
-const LightOff = () => {
-    return <div className={s.boxOnOff}>
-        <div className={s.on}>On</div>
-        <div className={s.offRed}>Off</div>
-        <div className={s.circleRed}></div>
-    </div>
 }
