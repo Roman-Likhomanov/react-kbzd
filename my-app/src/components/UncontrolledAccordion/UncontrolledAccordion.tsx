@@ -10,7 +10,8 @@ function UncontrolledAccordion(props:UncontrolledAccordionPropsType) {
 
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/> <button onClick={()=>{setCollaps(!collaps)}}>TOGGLE</button>
+            <AccordionTitle title={props.titleValue} onClick={()=>{setCollaps(!collaps)}}/>
+
             {collaps && <AccordionBody/>}
         </div>
     )
@@ -18,10 +19,11 @@ function UncontrolledAccordion(props:UncontrolledAccordionPropsType) {
 
 type AccordionTitlePropsType = {
     title: string
+    onClick: ()=>void
 }
 
 function AccordionTitle(props:AccordionTitlePropsType) {
-    return <h3>{props.title}</h3>
+    return <h3 onClick={()=>props.onClick()}>{props.title}</h3>
 }
 
 function AccordionBody() {
