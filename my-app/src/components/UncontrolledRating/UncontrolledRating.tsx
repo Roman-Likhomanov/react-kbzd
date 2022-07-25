@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export function UncontrolledRating() {
+function UncontrolledRatingSecret() {
 
     let [value, setValue] = useState(0)
 
@@ -26,3 +26,5 @@ function Star(props: StarPropsType) {
        { props.selected ? <b>star </b> : 'star '}
    </span>
 }
+
+export const UncontrolledRating = React.memo(UncontrolledRatingSecret)

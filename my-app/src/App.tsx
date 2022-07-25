@@ -23,7 +23,10 @@ function App() {
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating/>
 
-            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed} onChange={()=>setAccordionCollapsed(!accordionCollapsed)}/>
+            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed} onChange={()=>setAccordionCollapsed(!accordionCollapsed)}
+                       items={[{title:'Ivan', value:1},{title:'Viktor', value:2},{title:'Dimych', value:3}, {title:'Artur', value:4}]}
+                       onClick={(value)=>{alert (`user with ID ${value} shoud be happy`)}}
+            />
 
             <OnOff on={on} setOn={setOn}/>
             {/*<UncontrolledRating/>*/}

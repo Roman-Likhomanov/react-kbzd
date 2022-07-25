@@ -6,7 +6,7 @@ type OnOffPropsType = {
     setOn: (on:boolean)=>void
 }
 
-export const OnOff = (props:OnOffPropsType) => {
+const OnOffSecret = (props:OnOffPropsType) => {
 
     const box = {
         display: 'flex'
@@ -56,3 +56,5 @@ export const OnOff = (props:OnOffPropsType) => {
         </div>
     )
 }
+
+export const OnOff = React.memo(OnOffSecret)

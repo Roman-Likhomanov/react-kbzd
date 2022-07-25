@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export type RatingValueType = 0|1|2|3|4|5
 
 type RatingPropsType = {
@@ -8,7 +7,7 @@ type RatingPropsType = {
     onClick:(value:RatingValueType)=>void
 }
 
-export function Rating(props: RatingPropsType) {
+function RatingSecret(props: RatingPropsType) {
 
     return (
         <div>
@@ -33,3 +32,5 @@ function Star(props: StarPropsType) {
                     </span>
 
 }
+
+export const Rating = React.memo(RatingSecret)

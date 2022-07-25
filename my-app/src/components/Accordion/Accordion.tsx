@@ -13,7 +13,7 @@ type AccordionPropsType = {
     onClick: (value:any)=> void
 }
 
-function Accordion(props:AccordionPropsType) {
+function AccordionSecret(props:AccordionPropsType) {
     return (
         <div>
             <AccordionTitle title={props.titleValue} onChange={props.onChange}/>
@@ -41,5 +41,7 @@ function AccordionBody(props: AccordionBodyPropsType) {
         {props.items.map((i,index)=><li onClick={()=>{props.onClick(i.value)}} key={index}>{i.title}</li>)}
     </ul>
 }
+
+const Accordion = React.memo(AccordionSecret)
 
 export default Accordion;
